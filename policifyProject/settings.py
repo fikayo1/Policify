@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 #import django_heroku
 from email.policy import default
-from decouple import config
 from pathlib import Path
 import dj_database_url
 
@@ -27,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', default='django-insecure-y5nd&=v=yo(r55um!99ps^i+06(8189j4j5=o6%mor0zje7)^d')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', default=True, cast=bool)
+DEBUG = os.environ.get('DEBUG', default=True)
 
 ALLOWED_HOSTS = ['https://abbytee.herokuapp.com/','*']
 
