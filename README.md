@@ -84,7 +84,7 @@ Special thanks to the online resources, documentation, and tutorials that provid
 For any inquiries or questions regarding the Policify Django app, please feel free to contact me directly:
 
 - Name: Fikayo_
-- Email: [soetan@gmail.com]
+- Email: [soetandan@gmail.com]
 - GitHub: [github.com/fikayo1](https://github.com/fikayo1)
 
 I am open to feedback, suggestions, and collaboration opportunities. Don't hesitate to reach out!
