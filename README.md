@@ -1,4 +1,4 @@
-# Policify Django App
+# Policify
 
 Policify is a Django web application that allows users to generate policies, terms, and conditions documents for their businesses. It provides an easy-to-use interface for creating and customizing various types of policies to suit specific business needs.
 
