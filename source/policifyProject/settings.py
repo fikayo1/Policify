@@ -14,6 +14,7 @@ import os
 from email.policy import default
 from decouple import config
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY', default='django-insecure-y5nd&=v=yo(r55um!99ps^i+06(8189j4j5=o6%mor0zje7)^d')
+SECRET_KEY = os.environ.get('SECRET_KEY', default='django-insecure-y5nd&=v=yo(r55um!99ps^i+06(8189j4j5=o6%mor0zje7)^d')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = os.environ.get('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = ['https://abbytee.herokuapp.com/','*']
 
@@ -116,6 +117,16 @@ WSGI_APPLICATION = 'policifyProject.wsgi.application'
 #     }
 # }
 
+
+
+if not DEBUG:
+    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'db.sqlite3',
+        }}
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -178,4 +189,4 @@ LOGOUT_REDIRECT_URL = "/home"
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 
-DEBUG = False
+# DEBUG = False
